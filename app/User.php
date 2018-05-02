@@ -26,4 +26,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Return Fail relationship
+     *
+     * @return App\Fail
+     */
+    public function fail()
+    {
+        return $this->hasOne(Fail::class)->orderBy('failed_at', 'desc');
+    }
+
+    /**
+     * Return Fails relationship
+     *
+     * @return App\Fail
+     */
+    public function fails()
+    {
+        return $this->hasMany(Fail::class)->orderBy('failed_at', 'desc');
+    }
 }

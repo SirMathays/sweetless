@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Auth::routes();
+
+
+Route::middleware('auth')->group(function() {
+	Route::get('/', 'HomeController@index')->name('home');
+
+	Route::prefix('v1')->group(function () {
+		Route::get('users', 'HomeController@getUsers');
+	});
 });

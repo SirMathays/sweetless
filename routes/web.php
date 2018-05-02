@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function() {
 	Route::get('/', 'HomeController@index')->name('home');
 
 	Route::prefix('v1')->group(function () {
-		Route::get('users', 'HomeController@getUsers');
+		Route::get('user-data', 'HomeController@getUser');
+		Route::get('front-page', 'HomeController@frontPage');
 	});
 });

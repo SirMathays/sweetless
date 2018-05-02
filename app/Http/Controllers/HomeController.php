@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 use App\User;
 
@@ -18,19 +19,26 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function getUser()
+    {
+        $user = User::select('id', 'name', 'email')->streak()->find(Auth::id());
+
+        return response([
+            'user' => $user
+        ], 200);
+    }
+
     /**
      * Description
      *
      * @return Illuminate\Http\Response
      */
-    public function getUsers()
+    public function frontPage()
     {
-        $users = User::select('id', 'name')->with(['fail' => function ($query) {
-            $query->select('id', 'user_id', 'failed_at');
-        }])->get();
+        $users = User::select('id', 'name', 'created_at')->streak()->get();
 
         return response([
-            'users' => $users
+            'topList' => $users
         ], 200);
     }
 }

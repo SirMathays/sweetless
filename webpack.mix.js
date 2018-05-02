@@ -15,6 +15,7 @@ mix.webpackConfig({
 	resolve: {
 		alias: {
 			pages: path.resolve(__dirname, 'resources/assets/js/components/pages'),
+			parts: path.resolve(__dirname, 'resources/assets/js/components/parts'),
 			containers: path.resolve(__dirname, 'resources/assets/js/components/containers'),
 		}
 	}

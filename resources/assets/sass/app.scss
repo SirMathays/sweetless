@@ -12,3 +12,34 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+/* ANIMATION */
+.slide-enter-active,
+.slide-leave-active {
+    transition: .4s
+}
+
+.slide-enter {
+    opacity: 0;
+	transform: translateX(-20px);
+}
+
+.slide-leave-to {
+	opacity: 0;
+	transform: translateX(20px);
+}
+
+
+.card-default {
+	border: 0;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.avatar {
+	border-radius: 50%;
+	overflow: hidden;
+
+	img {
+		border-radius: 50%;
+	}
+}
